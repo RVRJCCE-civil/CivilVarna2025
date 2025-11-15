@@ -1,17 +1,16 @@
-/* --- Global Styles and Variables (Light Theme) --- */
+/* --- Global Styles and Variables (Brown/Gold Theme) --- */
 :root {
-    --primary-color: #007bff; /* Vibrant Blue for emphasis */
-    --secondary-color: #20c997; /* Teal/Green for accents */
-    --text-color: #343a40; /* Dark gray for readability */
-    --bg-color: #f0f2f5; /* Very light gray/off-white background */
+    --primary-color: #7a4a2b; /* Deep Brown */
+    --secondary-color: #c08d4a; /* Warm Gold */
+    --text-color: #3d2c20; /* Very Dark Brown for readability */
+    --bg-color: #fcf8f3; /* Creamy Off-white background */
     --card-bg: #ffffff; /* Pure white for event cards and detail pop-ups */
-    --border-color-light: #e0e0e0; /* Light border for elements */
+    --border-color-light: #e6d3bf; /* Lighter brown/beige border */
     --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-    --glow-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Soft blue glow */
+    --glow-shadow: 0 0 10px rgba(122, 74, 43, 0.3); /* Soft brown glow */
 }
 
 body {
-    /* Using Roboto for body text and general elements */
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -25,7 +24,6 @@ body {
     margin: auto;
 }
 .section-title {
-    /* Keeping a prominent font for titles (like Montserrat) for impact */
     font-family: 'Montserrat', sans-serif; 
     color: var(--primary-color);
     text-align: center;
@@ -52,7 +50,7 @@ body {
 }
 .header-branding {
     display: flex;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center;
     align-items: center;
     gap: 20px;
     margin-bottom: 15px;
@@ -68,7 +66,7 @@ body {
     text-align: center;
 }
 .college-info h2 {
-    font-family: 'Montserrat', sans-serif; /* Keep titles impactful */
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     font-size: 1.4em;
     color: var(--text-color);
@@ -80,7 +78,7 @@ body {
     color: var(--secondary-color);
 }
 .header h1 {
-    font-family: 'Montserrat', sans-serif; /* Keep titles impactful */
+    font-family: 'Montserrat', sans-serif;
     margin: 5px 0;
     font-size: 2.8em;
     letter-spacing: 4px;
@@ -149,7 +147,7 @@ body {
     background-size: cover;
     background-position: center;
     background-blend-mode: multiply;
-    background-color: rgba(0, 123, 255, 0.1); /* Very light blue tint over images */
+    background-color: rgba(122, 74, 43, 0.1); /* Light brown tint over images */
 }
 
 /* Event Content Area (Text and Button) */
@@ -192,18 +190,19 @@ body {
     font-weight: bold;
     transition: background-color 0.3s, box-shadow 0.3s;
     text-transform: uppercase;
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 2px 5px rgba(122, 74, 43, 0.2);
     cursor: pointer;
     border: none;
     width: 100%;
 }
 .explore-button:hover {
     background-color: var(--secondary-color);
-    box-shadow: 0 5px 15px rgba(32, 201, 151, 0.4);
+    box-shadow: 0 5px 15px rgba(192, 141, 74, 0.4);
     color: white;
 }
 
 /* --- EVENT BACKGROUND IMAGES - Applied to ::before pseudo-element --- */
+/* (These remain the same, as they are images. The tint overlay will change) */
 .event-1::before { background-image: url('digi-expo-bg.jpg'); } 
 .event-2::before { background-image: url('quiz-bg.jpg'); }
 .event-3::before { background-image: url('paper-bg.jpg'); }
@@ -239,7 +238,7 @@ body {
 
 /* Detail Header/Description Section */
 .detail-header {
-    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    background: linear-gradient(90deg, var(--primary-color) 0%, #5e3b26 100%); /* Gradient with darker brown */
     color: white;
     padding: 15px;
     border-radius: 5px;
@@ -259,7 +258,7 @@ body {
 .detail-instructions {
     flex: 2;
     min-width: 250px;
-    background-color: #f8f9fa; /* Very light grey for instructions box */
+    background-color: #fcf8f3; /* Lightest background brown */
     padding: 15px;
     border-radius: 5px;
     border: 1px solid var(--border-color-light);
@@ -307,7 +306,7 @@ body {
     justify-content: center;
     gap: 10px;
     margin-bottom: 15px;
-    background-color: #f8f9fa;
+    background-color: #fcf8f3; /* Lightest background brown */
     padding: 10px;
     border-radius: 5px;
     border: 1px solid var(--border-color-light);
@@ -387,7 +386,7 @@ body {
     background-color: var(--card-bg);
 }
 .prize-table tr:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: #fcf8f3; /* Lightest background brown */
 }
 
 .coord-table {
@@ -398,7 +397,7 @@ body {
     box-shadow: var(--shadow-light);
 }
 .coord-table tr:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: #fcf8f3; /* Lightest background brown */
 }
 /* --- Footer --- */
 .footer {
