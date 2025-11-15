@@ -1,20 +1,20 @@
-/* --- Global Styles and Variables (Attractive Theme) --- */
+/* --- Global Styles and Variables (Light Theme) --- */
 :root {
-    --primary-color: #00a8e8; /* Vibrant Cyan Blue (Professional/Sky) */
-    --secondary-color: #ffc300; /* Warm Gold/Yellow (Accent) */
-    --text-color: #f0f0f0; /* Light text for dark background */
-    --bg-color: #0f1c2b; /* Very Dark Blue-Gray Background */
-    --card-bg: #1c2b3d; /* Mid-tone background for cards */
-    --glow-shadow: 0 0 10px rgba(0, 168, 232, 0.5); /* Blue glow */
+    --primary-color: #007bff; /* Vibrant Blue for emphasis */
+    --secondary-color: #20c997; /* Teal/Green for accents */
+    --text-color: #343a40; /* Dark gray for readability */
+    --bg-color: #f0f2f5; /* Very light gray/off-white background */
+    --card-bg: #ffffff; /* Pure white for event cards and detail pop-ups */
+    --border-color-light: #e0e0e0; /* Light border for elements */
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    --glow-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Soft blue glow */
 }
 
 body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0f1c2b; /* Base dark blue */
-    /* Attractive Gradient Background */
-    background: linear-gradient(135deg, #0f1c2b 0%, #1c2b3d 100%);
+    background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -30,20 +30,22 @@ body {
     border-bottom: 3px solid var(--secondary-color);
     padding-bottom: 10px;
     font-size: 2em;
-    text-shadow: 0 0 5px var(--primary-color);
+    text-shadow: none;
 }
 .intro-text {
     text-align: center;
     font-size: 1.1em;
     margin-bottom: 40px;
+    color: var(--text-color);
 }
 
 /* --- Header & Branding --- */
 .header {
-    background: linear-gradient(to top, #1c2b3d, #0f1c2b); /* Subtle fade gradient */
-    padding: 40px 0 20px 0;
+    background-color: var(--card-bg);
+    padding: 30px 0 15px 0;
     text-align: center;
-    border-bottom: 5px solid var(--secondary-color);
+    border-bottom: 5px solid var(--primary-color);
+    box-shadow: var(--shadow-light);
 }
 .header-branding {
     display: flex;
@@ -53,7 +55,7 @@ body {
     margin-bottom: 15px;
 }
 .college-logo {
-    max-width: 100px;
+    max-width: 90px;
     height: auto;
     border-radius: 50%;
     border: 3px solid var(--primary-color);
@@ -64,42 +66,43 @@ body {
 }
 .college-info h2 {
     margin: 0;
-    font-size: 1.5em;
-    color: #ddd;
+    font-size: 1.4em;
+    color: var(--text-color);
     letter-spacing: 1px;
 }
 .college-info p {
     margin: 5px 0 0 0;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: var(--secondary-color);
 }
 .header h1 {
     margin: 5px 0;
-    font-size: 3em;
-    letter-spacing: 5px;
-    color: white;
+    font-size: 2.8em;
+    letter-spacing: 4px;
+    color: var(--primary-color);
 }
 .tagline {
     font-style: italic;
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin: 5px 0 15px 0;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 .organizer-info {
-    font-size: 1em;
+    font-size: 0.95em;
     margin-top: 15px;
-    color: #aaa;
+    color: var(--text-color);
 }
 
 /* --- Navigation --- */
 .nav {
-    background-color: #0d1117;
+    background-color: var(--primary-color);
     overflow: hidden;
     text-align: center;
+    box-shadow: var(--shadow-light);
 }
 .nav a {
     display: inline-block;
-    color: var(--text-color);
+    color: white;
     padding: 14px 25px;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
@@ -107,10 +110,10 @@ body {
 }
 .nav a:hover {
     background-color: var(--secondary-color);
-    color: black;
+    color: white;
 }
 
-/* --- Event Grid & Cards --- */
+/* --- Event Grid & Cards (Soudha-style) --- */
 .event-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -119,138 +122,287 @@ body {
 .event-card {
     background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    box-shadow: var(--shadow-light);
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 2px solid var(--primary-color);
+    border: 1px solid var(--border-color-light);
     text-align: center;
-    min-height: 250px;
+    min-height: 400px;
     position: relative;
-    
-    /* Background Image Setup */
-    background-size: cover; 
-    background-position: center;
-    background-blend-mode: overlay; 
-    background-color: rgba(0, 0, 0, 0.5); /* Lighter overlay for better blending */
+    padding: 0;
+    overflow: hidden;
 }
 .event-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
-.event-card h3 {
+
+/* Event Image Area */
+.event-card::before {
+    content: '';
+    display: block;
+    height: 180px; /* Height of the image banner */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 123, 255, 0.1); /* Very light blue tint over images */
+}
+
+/* Event Content Area (Text and Button) */
+.event-content {
+    padding: 15px 20px 20px 20px;
+    text-align: left;
+}
+
+.event-content h3 {
+    color: var(--primary-color);
+    margin: 0 0 5px 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.8em;
+}
+.tagline-event {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #6c757d;
+    margin: 0 0 10px 0;
+}
+.event-content .description {
+    font-size: 0.95em;
+    color: var(--text-color);
+    min-height: 40px;
+}
+.event-content .prize-info {
     color: var(--secondary-color);
-    margin-top: 0;
-    border-bottom: 2px dashed var(--primary-color);
-    padding-bottom: 10px;
-    font-size: 1.5em;
-}
-.event-card .prize-info {
-    color: #ffd700; /* Bright gold for prize money */
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px 0;
 }
 .explore-button {
-    display: inline-block;
+    display: block;
     background-color: var(--primary-color);
-    color: #fff;
+    color: white;
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s, box-shadow 0.3s;
     text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(0, 168, 232, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
     cursor: pointer;
+    border: none;
+    width: 100%;
 }
 .explore-button:hover {
     background-color: var(--secondary-color);
-    box-shadow: 0 0 15px var(--secondary-color);
-    color: #0f1c2b; /* Dark text on hover for contrast */
-}
-.special-prize {
-    border-color: #ff6e40; /* Orange highlight for Tech Hunt prize */
-}
-
-
-/* --- EVENT BACKGROUND IMAGES (You must upload these!) --- */
-.event-1 { background-image: url('digi-expo-bg.jpg'); } 
-.event-2 { background-image: url('quiz-bg.jpg'); }
-.event-3 { background-image: url('paper-bg.jpg'); }
-.event-4 { background-image: url('cad-bg.jpg'); }
-.event-5 { background-image: url('tech-hunt-bg.jpg'); }
-.event-6 { background-image: url('aakrithik-bg.jpg'); }
-
-
-/* --- Rules Content (Toggled by JS) --- */
-.rules-content {
-    display: none;
-    padding: 15px;
-    margin-top: 15px;
-    background-color: #2a3d54; /* Medium dark blue for rule box */
-    border-radius: 5px;
-    text-align: left;
-    border-top: 3px solid var(--secondary-color);
-}
-.rules-content.active {
-    display: block;
-}
-.rules-content h4 {
-    color: var(--primary-color);
-    border-bottom: 1px solid #555;
-    padding-bottom: 5px;
-    margin-top: 0;
-}
-.rules-content ul {
-    list-style-type: square;
-    margin-left: 20px;
-    padding: 0;
-    font-size: 0.9em;
-}
-.register-inside {
-    margin-top: 20px;
-    background-color: var(--secondary-color);
-    color: #0f1c2b; /* Dark text on bright button */
-    padding: 12px 30px;
-    font-size: 1.1em;
-    font-weight: 700;
-}
-.register-inside:hover {
-    background-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(32, 201, 151, 0.4);
     color: white;
 }
 
+/* --- EVENT BACKGROUND IMAGES - Applied to ::before pseudo-element --- */
+.event-1::before { background-image: url('digi-expo-bg.jpg'); } 
+.event-2::before { background-image: url('quiz-bg.jpg'); }
+.event-3::before { background-image: url('paper-bg.jpg'); }
+.event-4::before { background-image: url('cad-bg.jpg'); }
+.event-5::before { background-image: url('tech-hunt-bg.jpg'); }
+.event-6::before { background-image: url('aakrithik-bg.jpg'); }
 
-/* --- Tables and Footer --- */
+
+/* ---------------------------------------------------------------- */
+/* --- EVENT DETAIL CARD STYLE (RULES POP-OUT) --- */
+/* ---------------------------------------------------------------- */
+.event-detail-card {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-bg);
+    z-index: 10;
+    padding: 20px;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+.event-detail-card.active {
+    display: block;
+}
+
+/* Detail Header/Description Section */
+.detail-header {
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* Two Column Wrapper */
+.detail-content-wrapper {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Instructions Column (Left) */
+.detail-instructions {
+    flex: 2;
+    min-width: 250px;
+    background-color: #f8f9fa; /* Very light grey for instructions box */
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color-light);
+}
+.detail-instructions h4 {
+    color: var(--primary-color);
+    border-bottom: 1px dashed var(--border-color-light);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+.detail-instructions ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+.detail-instructions ul li {
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+.icon {
+    margin-right: 8px;
+    color: var(--secondary-color);
+    font-size: 1.2em;
+}
+
+
+/* Registration Column (Right) */
+.detail-registration {
+    flex: 1;
+    min-width: 200px;
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+}
+.detail-registration h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.reg-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color-light);
+}
+.reg-item .icon {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+}
+.reg-label {
+    margin: 0;
+    font-size: 0.8em;
+    color: #6c757d;
+}
+.reg-value {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+.coord-heading {
+    margin-top: 20px !important;
+    border-bottom: 1px solid var(--border-color-light);
+}
+.coord-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.icon-coord {
+    background-color: var(--primary-color);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1em;
+}
+.register-button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+.register-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+/* --- Tables --- */
 .prize-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
     font-size: 0.95em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-light);
 }
 .prize-table th, .coord-table th {
     background-color: var(--primary-color);
-    color: #0f1c2b;
+    color: white;
     padding: 12px;
     text-align: left;
 }
 .prize-table td, .coord-table td {
-    border: 1px solid #444;
+    border: 1px solid var(--border-color-light);
     color: var(--text-color);
     padding: 10px;
+    background-color: var(--card-bg);
 }
 .prize-table tr:nth-child(even) {
-    background-color: #2a3d54; /* Subtle stripe */
+    background-color: #f8f9fa;
 }
+
+.coord-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 0.95em;
+    box-shadow: var(--shadow-light);
+}
+.coord-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+/* --- Footer --- */
 .footer {
-    background-color: #0d1117;
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
     padding: 15px 0;
     margin-top: 40px;
     font-size: 0.9em;
-    border-top: 3px solid var(--primary-color);
+    border-top: 3px solid var(--secondary-color);
 }
 
 /* --- Responsive Adjustments --- */
@@ -268,5 +420,11 @@ body {
     }
     .college-info h2 {
         font-size: 1.2em;
+    }
+    .detail-content-wrapper {
+        flex-direction: column;
+    }
+    .detail-instructions, .detail-registration {
+        min-width: 100%;
     }
 }
