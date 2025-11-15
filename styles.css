@@ -1,23 +1,25 @@
-/* --- Global Styles and Variables --- */
+/* --- Global Styles and Variables (Attractive Theme) --- */
 :root {
-    --primary-color: #004d99; /* Deep Blue for Civil Engg */
-    --secondary-color: #ffcc00; /* Yellow/Gold for accent */
-    --text-color: #333;
-    --bg-color: #f4f4f9;
-    --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    --hover-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    --primary-color: #00a8e8; /* Vibrant Cyan Blue (Professional/Sky) */
+    --secondary-color: #ffc300; /* Warm Gold/Yellow (Accent) */
+    --text-color: #f0f0f0; /* Light text for dark background */
+    --bg-color: #0f1c2b; /* Very Dark Blue-Gray Background */
+    --card-bg: #1c2b3d; /* Mid-tone background for cards */
+    --glow-shadow: 0 0 10px rgba(0, 168, 232, 0.5); /* Blue glow */
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--bg-color);
+    background-color: #0f1c2b; /* Base dark blue */
+    /* Attractive Gradient Background */
+    background: linear-gradient(135deg, #0f1c2b 0%, #1c2b3d 100%);
     color: var(--text-color);
     line-height: 1.6;
 }
 .container {
-    padding: 20px;
+    padding: 40px 20px;
     max-width: 1200px;
     margin: auto;
 }
@@ -27,196 +29,244 @@ body {
     margin-bottom: 30px;
     border-bottom: 3px solid var(--secondary-color);
     padding-bottom: 10px;
+    font-size: 2em;
+    text-shadow: 0 0 5px var(--primary-color);
+}
+.intro-text {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 40px;
 }
 
-/* --- Header & Navigation --- */
+/* --- Header & Branding --- */
 .header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 30px 0;
+    background: linear-gradient(to top, #1c2b3d, #0f1c2b); /* Subtle fade gradient */
+    padding: 40px 0 20px 0;
+    text-align: center;
+    border-bottom: 5px solid var(--secondary-color);
+}
+.header-branding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+.college-logo {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--glow-shadow);
+}
+.college-info {
     text-align: center;
 }
-.logo {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 50%;
-    border: 3px solid white;
+.college-info h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ddd;
+    letter-spacing: 1px;
+}
+.college-info p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+    color: var(--secondary-color);
 }
 .header h1 {
     margin: 5px 0;
-    font-size: 2.8em;
-    letter-spacing: 2px;
+    font-size: 3em;
+    letter-spacing: 5px;
+    color: white;
 }
 .tagline {
     font-style: italic;
     font-size: 1.2em;
     margin: 5px 0 15px 0;
+    color: var(--primary-color);
 }
 .organizer-info {
     font-size: 1em;
     margin-top: 15px;
+    color: #aaa;
 }
 
+/* --- Navigation --- */
 .nav {
-    background-color: #333;
+    background-color: #0d1117;
     overflow: hidden;
     text-align: center;
 }
 .nav a {
     display: inline-block;
-    color: white;
-    text-align: center;
+    color: var(--text-color);
     padding: 14px 25px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
     font-weight: bold;
 }
 .nav a:hover {
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: black;
 }
 
-/* --- Event Grid --- */
+/* --- Event Grid & Cards --- */
 .event-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 30px;
 }
 .event-card {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     padding: 20px;
-    transition: transform 0.3s;
-    border-top: 5px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    min-height: 250px;
+    position: relative;
+    
+    /* Background Image Setup */
+    background-size: cover; 
+    background-position: center;
+    background-blend-mode: overlay; 
+    background-color: rgba(0, 0, 0, 0.5); /* Lighter overlay for better blending */
 }
 .event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--hover-shadow);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--primary-color);
 }
 .event-card h3 {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     margin-top: 0;
-    border-bottom: 2px dashed #ccc;
+    border-bottom: 2px dashed var(--primary-color);
     padding-bottom: 10px;
-}
-.event-card .description {
-    font-size: 0.95em;
-    min-height: 40px; 
+    font-size: 1.5em;
 }
 .event-card .prize-info {
-    color: #cc0000;
+    color: #ffd700; /* Bright gold for prize money */
     font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
-.event-card.special-prize {
-    border-top: 5px solid #cc0000; /* Red border for Tech Hunt */
-}
-
-.cta-button {
+.explore-button {
     display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    margin-top: 15px;
-    transition: opacity 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
     text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 168, 232, 0.5);
+    cursor: pointer;
 }
-.cta-button:hover {
-    opacity: 0.9;
+.explore-button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 15px var(--secondary-color);
+    color: #0f1c2b; /* Dark text on hover for contrast */
+}
+.special-prize {
+    border-color: #ff6e40; /* Orange highlight for Tech Hunt prize */
 }
 
-/* --- Tables --- */
-.prize-table, .coord-table {
+
+/* --- EVENT BACKGROUND IMAGES (You must upload these!) --- */
+.event-1 { background-image: url('digi-expo-bg.jpg'); } 
+.event-2 { background-image: url('quiz-bg.jpg'); }
+.event-3 { background-image: url('paper-bg.jpg'); }
+.event-4 { background-image: url('cad-bg.jpg'); }
+.event-5 { background-image: url('tech-hunt-bg.jpg'); }
+.event-6 { background-image: url('aakrithik-bg.jpg'); }
+
+
+/* --- Rules Content (Toggled by JS) --- */
+.rules-content {
+    display: none;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #2a3d54; /* Medium dark blue for rule box */
+    border-radius: 5px;
+    text-align: left;
+    border-top: 3px solid var(--secondary-color);
+}
+.rules-content.active {
+    display: block;
+}
+.rules-content h4 {
+    color: var(--primary-color);
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+.rules-content ul {
+    list-style-type: square;
+    margin-left: 20px;
+    padding: 0;
+    font-size: 0.9em;
+}
+.register-inside {
+    margin-top: 20px;
+    background-color: var(--secondary-color);
+    color: #0f1c2b; /* Dark text on bright button */
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+.register-inside:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+/* --- Tables and Footer --- */
+.prize-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
     font-size: 0.95em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .prize-table th, .coord-table th {
     background-color: var(--primary-color);
-    color: white;
+    color: #0f1c2b;
     padding: 12px;
     text-align: left;
 }
 .prize-table td, .coord-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #444;
+    color: var(--text-color);
     padding: 10px;
 }
 .prize-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #2a3d54; /* Subtle stripe */
 }
-
-/* --- Rules Page Specific --- */
-.rule-block {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-.rule-block h3 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 5px;
-}
-.rule-block ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-.rule-block.special-rule {
-    border-left: 5px solid red;
-    background-color: #fff0f0;
-}
-
-.college-info-block {
-    text-align: center;
-    padding: 15px;
-    border: 1px dashed var(--primary-color);
-    background-color: #e6f0ff;
-    margin-bottom: 30px;
-}
-
-.coord-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-.coord-grid div {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: white;
-}
-.coord-grid h4 {
-    color: var(--primary-color);
-    margin-top: 0;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-}
-.coord-grid p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
-
-/* --- Footer --- */
 .footer {
-    background-color: #333;
+    background-color: #0d1117;
     color: white;
     text-align: center;
     padding: 15px 0;
     margin-top: 40px;
     font-size: 0.9em;
+    border-top: 3px solid var(--primary-color);
 }
-.footer a {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-.footer a:hover {
-    text-decoration: underline;
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2.2em;
+        letter-spacing: 3px;
+    }
+    .header-branding {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .college-logo {
+        max-width: 80px;
+    }
+    .college-info h2 {
+        font-size: 1.2em;
+    }
 }
